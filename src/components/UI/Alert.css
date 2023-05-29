@@ -1,0 +1,26 @@
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    padding: 20px;
+    margin: 10px;
+    color: white;
+    background-color: rgb(203, 67, 67);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  }
+  
+  .alert button {
+    margin-left: 20px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    outline: none;
+  }
+  
