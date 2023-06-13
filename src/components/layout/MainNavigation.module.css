@@ -13,6 +13,8 @@
 .logo {
   font-size: 2rem;
   color: white;
+  transform: scale(0.9);
+  margin-top: 0.8rem;
 }
 
 .logo span{

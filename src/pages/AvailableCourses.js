@@ -49,6 +49,8 @@ const AvailableCourses = (props) => {
     <Fragment>
       
       <CoursesList tickets={loadedTickets} date={date}/>
+      
+
     </Fragment>
   );
 };

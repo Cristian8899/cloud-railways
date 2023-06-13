@@ -6,6 +6,7 @@ import { getAllTickets, getRailwaysByOrigin, getTicketsByUser } from "../lib/api
 import LoadingSpinner from "../components/UI/LoadingSpinner";
 import NoTicketsFound from "../components/tickets/NoTicketsFound";
 import AuthContext from "../store/auth-context";
+import Footer from "../components/layout/Footer";
 
 const AllTickets = function () {
 
