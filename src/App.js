@@ -15,9 +15,7 @@ const AvailableCourses =  React.lazy(()=>import('./pages/AvailableCourses'));
 
 function App() {
   const authCtx = useContext(AuthContext);
-
   return (
-
     <Layout>
       <Suspense fallback={<LoadingSpinner></LoadingSpinner>}>
       <Switch>
@@ -25,25 +23,17 @@ function App() {
           <Redirect to="/auth"></Redirect>
         </Route>
         <Route path="/tickets" exact>
-          
-
           {authCtx.isLoggedIn &&  <AllTickets></AllTickets>}
           {!authCtx.isLoggedIn && <Redirect to="/auth"></Redirect>}
         </Route>
-
         <Route path="/tickets/:ticketId">
-         
           {authCtx.isLoggedIn &&  <TicketDetail></TicketDetail>}
           {!authCtx.isLoggedIn && <Redirect to="/auth"></Redirect>}
         </Route>
-
-
-
         <Route path="/courses/:origin/:destination/:date" exact>
           {authCtx.isLoggedIn && <AvailableCourses></AvailableCourses>}
           {!authCtx.isLoggedIn && <Redirect to="/auth"></Redirect>}
         </Route>
-
         <Route path="/new-ticket">
           {authCtx.isLoggedIn && <NewTicket></NewTicket>}
           {!authCtx.isLoggedIn && <Redirect to="/auth"></Redirect>}
@@ -57,7 +47,6 @@ function App() {
           {authCtx.isLoggedIn && <UserProfile />}
           {!authCtx.isLoggedIn && <Redirect to="/auth"></Redirect>}
         </Route>
-
         <Route path="/logout" exact>
           <Redirect to="/auth"></Redirect>
         </Route>
@@ -69,5 +58,4 @@ function App() {
     </Layout>
   );
 }
-
 export default App;

@@ -10,7 +10,6 @@ import CoursesList from "../components/tickets/CoursesList";
 
 const AvailableCourses = (props) => {
 
-  const match = useRouteMatch();
   const params = useParams();
 
   const {origin,destination,date} = params;

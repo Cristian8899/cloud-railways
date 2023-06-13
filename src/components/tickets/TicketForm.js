@@ -17,20 +17,11 @@ const [alertMessage, setAlertMessage] = useState('');
 const authCtx = useContext(AuthContext);
 
 
-const {
-  sendRequest,
-  status,
-  data: loadedTickets,
-  error,
-} = useHttp(getAllRailwayStations, true);
+const {sendRequest,status,data: loadedTickets,error,} = useHttp(getAllRailwayStations, true);
 
 useEffect(() => {
   sendRequest()
 }, [sendRequest]);
-
-console.log(loadedTickets);
-//populez dropdown list cu asta
-
 
 const originInputRef = useRef();
 const destinationInputRef = useRef();
@@ -63,37 +54,20 @@ function submitFormHandler(event) {
   }
 
   const generatedSeat = Math.trunc(Math.random()*200)+1;
-
-  console.log(authCtx.email);
-  // optional: Could validate here
-
   props.onAddTicket({origin: enteredOrigin ,destination
     : enteredDestination, date:enteredDate, seat: generatedSeat, user:authCtx.email});
 }
 
-const formFocusedHandler = () =>{
-  setIsEntering(true);
-  
-}
+const formFocusedHandler = () =>{setIsEntering(true);}
 
-function closeAlertHandler() {
-  setAlertMessage('');
-}
-
-
-const finishEnteringHandler= function() {
-  setIsEntering(false);
-}
+function closeAlertHandler() {setAlertMessage('');}
+const finishEnteringHandler= function() { setIsEntering(false);}
 
   return (
     <Fragment>
       <Prompt when={isEntering} message={(location)=>'Are you sure you want to leave?'}></Prompt>
       
     <Card>
-
-    
-
-      
       <form  onFocus={formFocusedHandler} className={classes.form} onSubmit={submitFormHandler}>
         {props.isLoading && (
           <div className={classes.loading}>
@@ -122,12 +96,9 @@ const finishEnteringHandler= function() {
         <div className={classes.control}>
           <label htmlFor='date'>Date</label>
           <input type="date" id="date" name="date" ref={dateInputRef} />
-          
         </div>
 
         {alertMessage && <Alert message={alertMessage} onClose={closeAlertHandler} />}
-
-
         <div className={classes.actions}>
           <button onClick={finishEnteringHandler} className='btn'>Search Tickets</button>
         </div>

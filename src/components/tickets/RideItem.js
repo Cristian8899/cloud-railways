@@ -54,7 +54,7 @@ const RideItem = (props) => {
 
       </figure>
       <button onClick = {onClickHandler}className='btn'/* to={`/tickets/${props.id}` } */>
-        {/* trebuie cand apesi pe asta sa adaugi biletul la lista bilee. si termin tot greul */}
+
         Buy Ticket
       </button> 
 

@@ -12,48 +12,29 @@ const AllTickets = function () {
 
 const authCtx= useContext(AuthContext);
 
-
-  const {
-    sendRequest,
-    status,
-    data: loadedTickets,
-    error,
-  } = useHttp(getTicketsByUser, true);
+  const {sendRequest,status,data: loadedTickets, error,} = useHttp(getTicketsByUser, true);
 
   useEffect(() => {
     sendRequest(authCtx.email)
-
   }, [sendRequest]);
 
-  
-
   if (status === "pending") {
-    return (
-      <div className="centered">
+    return (<div className="centered">
         <LoadingSpinner></LoadingSpinner>
       </div>
-    );
-  }
+    );}
 
-  if (error) {
-    return <p className="centered focused">{error}</p>;
-  }
-
-  if (
-    status === "completed" &&
-    (!loadedTickets || loadedTickets.length === 0)
-  ) {
+  if (error) {return <p className="centered focused">{error}</p>;}
+  if (status === "completed" && (!loadedTickets || loadedTickets.length === 0)) {
     return <NoTicketsFound text="No Tickets Found"></NoTicketsFound>;
   }
-
- 
-
   return (
     <Fragment>
-      
       <TicketList tickets={loadedTickets} />
     </Fragment>
   );
 };
 
 export default AllTickets;
+
+

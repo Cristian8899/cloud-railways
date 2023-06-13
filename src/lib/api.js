@@ -28,10 +28,7 @@ export async function getTicketsByUser(email) {
   const response = await fetch(`${FIREBASE_DOMAIN}/tickets.json`);
   const data = await response.json();
 
-  if (!response.ok) {
-    throw new Error(data.message || "Could not fetch tickets.");
-  }
-
+  if (!response.ok) {throw new Error(data.message || "Could not fetch tickets."); }
   const transformedTickets = [];
 
   for (const key in data) {
